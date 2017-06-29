@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -53,13 +53,13 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>G:\Program Files (x86)\Boost\boost_1_58_0\stage\lib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost_1_58_0\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>G:\Program Files (x86)\Boost\boost_1_58_0\stage\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost_1_58_0\stage\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libusb-1.0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -70,7 +70,7 @@ copy "$(OutDir)$(ProjectName).dll"  "$(SolutionDir)SampleApplication\bin\$(Confi
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBUSB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
@@ -83,8 +83,6 @@ copy "$(OutDir)$(ProjectName).dll"  "$(SolutionDir)SampleApplication\bin\$(Confi
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="build\cmakefiles\3.2.3\compileridcxx\CMakeCXXCompilerId.cpp" />
-    <ClCompile Include="build\cmakefiles\feature_tests.cxx" />
     <ClCompile Include="src\chirp.cpp" />
     <ClCompile Include="src\chirpreceiver.cpp" />
     <ClCompile Include="src\pixy.cpp" />
@@ -104,10 +102,6 @@ copy "$(OutDir)$(ProjectName).dll"  "$(SolutionDir)SampleApplication\bin\$(Confi
     <ClInclude Include="src\unistd.h" />
     <ClInclude Include="src\usblink.h" />
     <ClInclude Include="src\utils\timer.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="build\cmakefiles\3.2.3\CMakeDetermineCompilerABI_CXX.bin" />
-    <None Include="build\cmakefiles\feature_tests.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

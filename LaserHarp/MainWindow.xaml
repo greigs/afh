@@ -1,0 +1,74 @@
+﻿<Window x:Class="LaserHarp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaserHarp"
+        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Laser Harp" Height="484" Width="525" Foreground="#FF323232" BorderBrush="Black" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="MainWindow_OnClosing">
+    <Window.Resources>
+
+        <ObjectDataProvider x:Key="MidiDeviceListData" ObjectType="local:MidiDeviceListData" MethodName="GetListData" DataChanged="MidiDeviceListData_OnDataChanged" />
+        <ObjectDataProvider x:Key="MidiInstrumentListData" ObjectType="local:MidiInstrumentListData" MethodName="GetListData" />
+        <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
+        <Style x:Key="GroupBoxStyle1" TargetType="{x:Type GroupBox}">
+            <Setter Property="BorderBrush" Value="#D5DFE5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupBox}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="6"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="6"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="6"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderBrush="#FF434343" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="4" CornerRadius="4" Grid.Row="1" Grid.RowSpan="3">
+                                <Border.OpacityMask>
+                                    <MultiBinding ConverterParameter="7" Converter="{StaticResource BorderGapMaskConverter}">
+                                        <Binding ElementName="Header" Path="ActualWidth"/>
+                                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                                        <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+                                    </MultiBinding>
+                                </Border.OpacityMask>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                                    <Border BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2"/>
+                                </Border>
+                            </Border>
+                            <Border x:Name="Header" Grid.Column="1" Padding="3,1,3,0" Grid.Row="0" Grid.RowSpan="2">
+                                <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ContentPresenter Grid.ColumnSpan="2" Grid.Column="1" Margin="{TemplateBinding Padding}" Grid.Row="2" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FF1E1E1E">
+        <GroupBox x:Name="groupBox" Header="Midi Output" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="132" Width="267" Foreground="#FFCACACA" BorderBrush="{x:Null}" Style="{DynamicResource GroupBoxStyle1}">
+            <Grid Margin="0,0,-2,-0.333">
+                <ComboBox x:Name="midiDeviceComboBox" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="213" DataContext="{Binding Source={StaticResource MidiDeviceListData}}" ItemsSource="{Binding Mode=OneWay}" SelectionChanged="MidiDeviceComboBox_OnSelectionChanged" />
+                <Button x:Name="midiRefreshButton" HorizontalAlignment="Left" Margin="228,26,0,0" Opacity="0.8" Width="21" Click="midiRefreshButton_Click" VerticalAlignment="Top" Height="22" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="icon-refresh-28.png"/>
+                    </Button.Background>
+                </Button>
+                <ComboBox x:Name="instrumentComboBox" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="213" DataContext="{Binding Source={StaticResource MidiInstrumentListData}}"  ItemsSource="{Binding Mode=OneWay}" SelectionChanged="InstrumentComboBox_OnSelectionChanged" SelectedIndex="0"/>
+                <Label x:Name="deviceLabel" Content="Device" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" Foreground="#FFD7D7D7"/>
+                <Label x:Name="instrumentLabel" Content="Instrument" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Foreground="#FFD7D7D7"/>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="pixieLabel" Content="" HorizontalAlignment="Left" Margin="307,60,0,0" VerticalAlignment="Top" Foreground="#FFDADADA"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Height="299" Width="500" FontFamily="Consolas" Foreground="White"/>
+        <TextBlock x:Name="infoTextBlock" HorizontalAlignment="Left" Margin="380,22,0,0" VerticalAlignment="Top" Height="111" Width="130" FontFamily="Consolas" Foreground="White"/>
+    </Grid>
+</Window>

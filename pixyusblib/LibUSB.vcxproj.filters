@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="build\cmakefiles\feature_tests.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="build\cmakefiles\3.2.3\compileridcxx\CMakeCXXCompilerId.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\chirpreceiver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,13 +68,5 @@
     <ClInclude Include="..\libusb-1.0\libusb\libusb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="build\cmakefiles\feature_tests.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="build\cmakefiles\3.2.3\CMakeDetermineCompilerABI_CXX.bin">
-      <Filter>Resource Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

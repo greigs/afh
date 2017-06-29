@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libusb-1.0 (dll)", "libusb-1.0\msvc\libusb_dll.vcxproj", "{8224C054-5968-4238-832C-167155E7ECC3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libusb-1.0", "libusb-1.0\msvc\libusb_dll.vcxproj", "{8224C054-5968-4238-832C-167155E7ECC3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pixyusblib", "pixyusblib\LibUSB.vcxproj", "{156C5957-1971-4087-8667-6A84F3DE903F}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixyUSB.NET", "PixyUSB.NET\
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication", "SampleApplication\SampleApplication.csproj", "{CCD479D4-7B15-43D0-AAE2-51C5BD5A7EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaserHarp", "LaserHarp\LaserHarp.csproj", "{1797A336-D86F-4631-A536-A472762B8E0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,18 @@ Global
 		{CCD479D4-7B15-43D0-AAE2-51C5BD5A7EEA}.Release|x64.Build.0 = Release|Any CPU
 		{CCD479D4-7B15-43D0-AAE2-51C5BD5A7EEA}.Release|x86.ActiveCfg = Release|Any CPU
 		{CCD479D4-7B15-43D0-AAE2-51C5BD5A7EEA}.Release|x86.Build.0 = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|x64.Build.0 = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Debug|x86.Build.0 = Debug|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|x64.ActiveCfg = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|x64.Build.0 = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|x86.ActiveCfg = Release|Any CPU
+		{1797A336-D86F-4631-A536-A472762B8E0B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -104,7 +104,7 @@ namespace PixyUSBNet
         public PixyConnection(string pixyUSBLibDLLPath = "pixyusblib.dll")
         {
             if (LoadPixyUSBLibrary(pixyUSBLibDLLPath) != true)
-                throw new Exception("Failed to load pixie USB library!");
+                throw new Exception("Failed to load pixy USB library!");
         }
 
         private bool LoadPixyUSBLibrary(string DLLLocation)
@@ -120,7 +120,18 @@ namespace PixyUSBNet
         /// <returns>Result of connection attempt.</returns>
         public PixyResult Initialize()
         {
+            if (hModule == 0)
+            {
+                LoadPixyUSBLibrary("pixyusblib.dll");
+            }
             return (PixyResult)pixy_init();
+        }
+
+        public void Dispose()
+        {
+            if (hModule > 0)
+                FreeLibrary(hModule);
+            hModule = 0;
         }
 
         /// <summary>Terminates connection with Pixy.</summary>
